@@ -13,7 +13,7 @@ export default function ChatFilter({ allChats, filterChats }) {
     // FILTER CHATS
     useEffect(() => {
 
-        if (option == 'All Ratings') {
+        if (option === 'All Ratings') {
             filterChats(allChats)
         }
         else {
@@ -22,7 +22,7 @@ export default function ChatFilter({ allChats, filterChats }) {
                 let found = false
 
                 item.chat.forEach(ch => {
-                    if (ch.rating == option) {
+                    if (ch.rating === option) {
                         found = true
                     }
                 })
@@ -33,7 +33,7 @@ export default function ChatFilter({ allChats, filterChats }) {
             filterChats(filtered)
         }
 
-    }, [option])
+    }, [option, allChats, filterChats])  // Added 'allChats' and 'filterChats' to dependency array
 
     return (
         <Box

@@ -18,7 +18,7 @@ export default function ChattingCard({ details, showFeedbackModal, updateChat, s
         if (isRating) {
             updateChat(prev => (
                 prev.map(item => {
-                    if (item.id == details.id) {
+                    if (item.id === details.id) {
                         return { ...item, rating: rating || 0 }
                     }
                     else {
@@ -47,7 +47,7 @@ export default function ChattingCard({ details, showFeedbackModal, updateChat, s
         >
             <Box
                 component={'img'}
-                src={details.type == "AI" ? ai : human}
+                src={details.type === "AI" ? ai : human}
                 height={{ xs: 30, md: 68 }}
                 width={{ xs: 30, md: 68 }}
                 borderRadius={'50%'}
@@ -60,7 +60,7 @@ export default function ChattingCard({ details, showFeedbackModal, updateChat, s
                     fontWeight={700}
                     fontSize={{ xs: 14, md: 16 }}
                 >
-                    {details.type == "AI" ? 'Soul AI' : 'You'}
+                    {details.type === "AI" ? 'Soul AI' : 'You'}
                 </Typography>
                 <Typography
                     fontSize={{ xs: 12, md: 16 }}
@@ -80,7 +80,7 @@ export default function ChattingCard({ details, showFeedbackModal, updateChat, s
                         {format(details.time, 'hh:mm a')}
                     </Typography>
 
-                    {(details.type == "AI" && !readOnly) && (
+                    {(details.type === "AI" && !readOnly) && (
                         <Stack
                             direction={'row'}
                             visibility={{ xs: 'visible', md: 'hidden' }}
@@ -108,7 +108,7 @@ export default function ChattingCard({ details, showFeedbackModal, updateChat, s
 
                 </Stack>
 
-                {((isRating || details.rating > 0) && details.type == "AI") && (
+                {((isRating || details.rating > 0) && details.type === "AI") && (
                     <Box pt={{ xs: 1, md: 2 }}>
                         <Typography
                             component={'legend'}
